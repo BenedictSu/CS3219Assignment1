@@ -9,15 +9,33 @@ import java.util.HashSet;
 */
 public class CircularShift {
     
-    private ArrayList input;
-    private HashSet ignoredWords;
+    private ArrayList<String> input;
+    private ArrayList<String> unsortedList;
+    private HashSet<String> ignoredWords;
+    String[] userInputArray;
     
-    public CircularShift (ArrayList userInput, HashSet userIgnoredWords) {
+    public CircularShift (ArrayList<String> userInput, HashSet<String> userIgnoredWords) {
         input = userInput;
         ignoredWords = userIgnoredWords;      
-        
+        computeList();
     }
     
+    private void computeList () {
+        unsortedList = new ArrayList<String>();
+        for (int i = 0; i < input.size(); i++) {
+            userInputArray = splitUserInput(input.get(i));
+            checkIgnore(0);
+            
+        }
+    }
     
+    private String[] splitUserInput(String sentence) {
+        return sentence.trim().split("\\s+");
+    }
+    
+    private void checkIgnore (int position) {
+        
+        
+    }
     
 }
