@@ -26,7 +26,6 @@ public class CircularShift {
         for (int i = 0; i < input.size(); i++) {
             userInputArray = splitUserInput(input.get(i));
             checkIgnore(userInputArray.length, 0, "");
-
         }
     }
 
@@ -36,15 +35,45 @@ public class CircularShift {
 
     private String checkIgnore(int lastPosition, int position, String frontWords) {
         String secondPart = "";
-        if (position != lastPosition - 1) {
-            secondPart =
-                    checkIgnore(lastPosition, position + 1, frontWords + " "
-                            + userInputArray[position]);
-        }
-        if (ignoredWords.contains(userInputArray[position])) {
-            unsortedList.add(userInputArray[position] + " " + secondPart + " "
+        
+        if (!ignoredWords.contains(userInputArray[position].toLowerCase())) {
+            if (position != lastPosition - 1) {
+                if (position == 0) {
+                    secondPart =
+                            checkIgnore(lastPosition, position + 1,
+                                    userInputArray[position]);
+                } else {
+                    secondPart =
+                            checkIgnore(lastPosition, position + 1, frontWords + " "
+                                    + userInputArray[position]);
+                }
+            }
+            unsortedList.add(userInputArray[position] + secondPart + " "
                     + frontWords);
+            return " " + userInputArray[position] + secondPart;
+        } else {
+            if (position != lastPosition - 1) {
+                if (position == 0) {
+                    secondPart =
+                            checkIgnore(lastPosition, position + 1,
+                                    userInputArray[position].toLowerCase());
+                } else {
+                    secondPart =
+                            checkIgnore(lastPosition, position + 1, frontWords + " "
+                                    + userInputArray[position].toLowerCase());
+                }
+            }
+            return " " + userInputArray[position].toLowerCase() + secondPart;
         }
-        return userInputArray[position] + " " + secondPart;
+    }
+
+    /**
+     * getUnsortedList
+     * 
+     * @return the unsorted list of key words
+     * 
+     */
+    public ArrayList<String> getUnsortedList() {
+        return unsortedList;
     }
 }
