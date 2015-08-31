@@ -2,9 +2,11 @@
 public class KWIC {
 	public static void main(String[] args){
 		Input input = Input.getInstance();
+		Output output = Output.getInstance();
 		
 		input.run();
 		
-		System.out.println(input.getMovies().get(0));
+		output.set(input.getMovies());
+		output.run();
 	}
 }
