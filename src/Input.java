@@ -64,7 +64,7 @@ public class Input {
 				break;
 			}
 			else{
-				ignores.add(text);
+				ignores.add(text.toLowerCase());
 			}
 		}
 	}
