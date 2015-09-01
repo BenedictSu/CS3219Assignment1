@@ -3,12 +3,10 @@ public class KWIC {
 <<<<<<< HEAD
 	public static void main(String[] args){
 		Input input = Input.getInstance();
-		Output output = Output.getInstance();
 		
 		input.run();
 		
-		output.set(input.getMovies());
-		output.run();
+		System.out.println(input.getMovies().get(0));
 	}
 =======
 
