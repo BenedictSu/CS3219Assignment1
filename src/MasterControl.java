@@ -2,9 +2,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
-
+//By Tan Chun How (A0111867A)and Benedict Suraj Suratanakavikul (A0110493N)
 public class MasterControl {
-    
     
     private static MasterControl masterControl;
     private static InputADT inputADT;

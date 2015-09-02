@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+//By Tan Chun How (A0111867A)and Benedict Suraj Suratanakavikul (A0110493N)
 public class KWIC {
 
     private static final String MESSAGE_END = "end",

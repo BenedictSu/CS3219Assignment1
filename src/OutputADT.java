@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+// By Tan Chun How (A0111867A)
 public class OutputADT {
     private static final String MESSAGE_KWIC = "output:";
     
