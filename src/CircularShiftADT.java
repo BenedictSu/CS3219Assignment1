@@ -9,19 +9,40 @@ import java.util.HashSet;
  */
 public class CircularShiftADT {
 
-    private ArrayList<String> input;
-    private ArrayList<String> unsortedList;
-    private HashSet<String> ignoredWords;
-    String[] userInputArray;
-
-    public CircularShiftADT(ArrayList<String> userInput,
+    private static ArrayList<String> input;
+    private static ArrayList<String> unsortedList;
+    private static HashSet<String> ignoredWords;
+    private static String[] userInputArray;
+    
+    private static CircularShiftADT circularShift;
+        
+    private CircularShiftADT(){
+    }
+    
+    public static CircularShiftADT getInstance(){
+        if(circularShift == null){
+            circularShift = new CircularShiftADT();
+        }
+        return circularShift;
+    }
+    
+    /**
+     * run
+     * 
+     * compute the list of key words
+     * 
+     * @return the unsorted list of key words
+     * 
+     */
+    public static ArrayList<String> run(ArrayList<String> userInput,
             HashSet<String> userIgnoredWords) {
         input = userInput;
         ignoredWords = userIgnoredWords;
         computeList();
+        return unsortedList;
     }
 
-    private void computeList() {
+    private static void computeList() {
         unsortedList = new ArrayList<String>();
         for (int i = 0; i < input.size(); i++) {
             userInputArray = splitUserInput(input.get(i));
@@ -29,11 +50,11 @@ public class CircularShiftADT {
         }
     }
 
-    private String[] splitUserInput(String sentence) {
+    private static String[] splitUserInput(String sentence) {
         return sentence.trim().split("\\s+");
     }
 
-    private String checkIgnore(int lastPosition, int position, String frontWords) {
+    private static String checkIgnore(int lastPosition, int position, String frontWords) {
         String secondPart = "";
 
         if (!ignoredWords.contains(userInputArray[position])) {
@@ -72,15 +93,5 @@ public class CircularShiftADT {
             }
             return " " + userInputArray[position] + secondPart;
         }
-    }
-
-    /**
-     * getUnsortedList
-     * 
-     * @return the unsorted list of key words
-     * 
-     */
-    public ArrayList<String> getUnsortedList() {
-        return unsortedList;
     }
 }
