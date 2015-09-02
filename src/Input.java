@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Input {
 	
     private static final String MESSAGE_END = "end", 
-            MESSAGE_INTRO = "Hi, welcome",
             MESSAGE_MOVIE = "Please insert the movies names one by one and type "
                     + "end after the last entry. For example:\nThe Day after Tomorrow\n"
                     + "Man of Steel\nFast and Furious\nend",
@@ -33,8 +32,6 @@ public class Input {
 	
 	public void run(){
 		sc = new Scanner(System.in);
-		
-		System.out.println(MESSAGE_INTRO);
 		
 		System.out.println(MESSAGE_MOVIE);
 		readMovies();
