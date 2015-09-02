@@ -35,21 +35,28 @@ public class CircularShift {
 
     private String checkIgnore(int lastPosition, int position, String frontWords) {
         String secondPart = "";
-        
+
         if (!ignoredWords.contains(userInputArray[position])) {
             if (position != lastPosition - 1) {
                 if (position == 0) {
                     secondPart =
                             checkIgnore(lastPosition, position + 1,
                                     userInputArray[position]);
+                    unsortedList.add(userInputArray[position] + secondPart);
                 } else {
                     secondPart =
                             checkIgnore(lastPosition, position + 1, frontWords + " "
                                     + userInputArray[position]);
+                    unsortedList.add(userInputArray[position] + secondPart + " "
+                            + frontWords);
+                }
+            } else {
+                if (position == 0) {
+                    unsortedList.add(userInputArray[position]);
+                } else {
+                    unsortedList.add(userInputArray[position] + " " + frontWords);
                 }
             }
-            unsortedList.add(userInputArray[position] + secondPart + " "
-                    + frontWords);
             return " " + userInputArray[position] + secondPart;
         } else {
             if (position != lastPosition - 1) {
