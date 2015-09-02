@@ -36,7 +36,7 @@ public class CircularShift {
     private String checkIgnore(int lastPosition, int position, String frontWords) {
         String secondPart = "";
         
-        if (!ignoredWords.contains(userInputArray[position].toLowerCase())) {
+        if (!ignoredWords.contains(userInputArray[position])) {
             if (position != lastPosition - 1) {
                 if (position == 0) {
                     secondPart =
@@ -56,14 +56,14 @@ public class CircularShift {
                 if (position == 0) {
                     secondPart =
                             checkIgnore(lastPosition, position + 1,
-                                    userInputArray[position].toLowerCase());
+                                    userInputArray[position]);
                 } else {
                     secondPart =
                             checkIgnore(lastPosition, position + 1, frontWords + " "
-                                    + userInputArray[position].toLowerCase());
+                                    + userInputArray[position]);
                 }
             }
-            return " " + userInputArray[position].toLowerCase() + secondPart;
+            return " " + userInputArray[position] + secondPart;
         }
     }
 
