@@ -5,10 +5,14 @@ import java.util.Scanner;
 
 public class Input {
 	
-	private static final String MESSAGE_END = "end",
-								MESSAGE_INTRO = "Hi, welcome",
-								MESSAGE_MOVIE = "Please insert movie",
-								MESSAGE_IGNORE = "Please insert ignore";
+    private static final String MESSAGE_END = "end", 
+            MESSAGE_INTRO = "Hi, welcome",
+            MESSAGE_MOVIE = "Please insert the movies names one by one and type "
+                    + "end after the last entry. For example:\nThe Day after Tomorrow\n"
+                    + "Man of Steel\nFast and Furious\nend",
+            MESSAGE_IGNORE = "Please insert the lsit of words to be ignored one "
+                    + "by one and type end after the last entry. For example:\nthe\nof\n"
+                    + "and\nas\na\nafter\nend";
 	
 	private static Input input;
 	private static Scanner sc;
