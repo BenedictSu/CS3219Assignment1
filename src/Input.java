@@ -50,7 +50,7 @@ public class Input {
 				break;
 			}
 			else{
-				movies.add(text);
+				movies.add(text.toLowerCase());
 			}
 		}
 	}
@@ -64,7 +64,7 @@ public class Input {
 				break;
 			}
 			else{
-				ignores.add(text);
+				ignores.add(text.toLowerCase());
 			}
 		}
 	}
