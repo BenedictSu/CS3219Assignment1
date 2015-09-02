@@ -34,11 +34,13 @@ public class CircularShift {
      * @return the unsorted list of key words
      * 
      */
-    public static ArrayList<String> run(ArrayList<String> userInput,
+    public ArrayList<String> run(ArrayList<String> userInput,
             HashSet<String> userIgnoredWords) {
         input = userInput;
         ignoredWords = userIgnoredWords;
         computeList();
+        Alphabetizer alphabetizer = Alphabetizer.getInstance();
+        alphabetizer.run(unsortedList);
         return unsortedList;
     }
 

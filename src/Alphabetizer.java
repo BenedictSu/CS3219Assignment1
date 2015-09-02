@@ -24,6 +24,9 @@ public class Alphabetizer {
 	
     public void run(ArrayList<String> unsortedList) {
         alphabetizer(unsortedList);
+        Output output = Output.getInstance();
+        output.set(sortedList);
+        output.run();
     }
     
     private void alphabetizer(ArrayList<String> unsortedList) {

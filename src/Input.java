@@ -43,6 +43,9 @@ public class Input {
 		readIgnores();
 		
 		sc.close();
+		
+		CircularShift circularShift = CircularShift.getInstance();
+		circularShift.run(this.getMovies(), this.getIgnores());
 	}
 	
 	private void readMovies(){
