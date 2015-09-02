@@ -2,16 +2,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * AlphabetizerADT
+ * Alphabetizer
  * 
  * It sorts the list of the key words
  */
 public class AlphabetizerADT {
     
+	private static Alphabetizer alphabetizer;
     private ArrayList<String> sortedList;
     
+    public AlphabetizerADT() {
+    	sortedList = new ArrayList<String>();
+    }
     
-    public AlphabetizerADT(ArrayList<String> unsortedList) {
+	public static Alphabetizer getInstance(){
+		if(alphabetizer == null){
+			alphabetizer = new Alphabetizer();
+		}
+		return alphabetizer;
+	}
+	
+    public void run(ArrayList<String> unsortedList) {
         alphabetizer(unsortedList);
     }
     

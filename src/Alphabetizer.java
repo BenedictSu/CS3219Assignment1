@@ -8,10 +8,21 @@ import java.util.Collections;
  */
 public class Alphabetizer {
     
+	private static Alphabetizer alphabetizer;
     private ArrayList<String> sortedList;
     
+    public Alphabetizer() {
+    	sortedList = new ArrayList<String>();
+    }
     
-    public Alphabetizer(ArrayList<String> unsortedList) {
+	public static Alphabetizer getInstance(){
+		if(alphabetizer == null){
+			alphabetizer = new Alphabetizer();
+		}
+		return alphabetizer;
+	}
+	
+    public void run(ArrayList<String> unsortedList) {
         alphabetizer(unsortedList);
     }
     
