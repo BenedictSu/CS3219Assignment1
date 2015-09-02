@@ -8,16 +8,16 @@ import java.util.Collections;
  */
 public class AlphabetizerADT {
     
-	private static Alphabetizer alphabetizer;
+	private static AlphabetizerADT alphabetizer;
     private ArrayList<String> sortedList;
     
     public AlphabetizerADT() {
     	sortedList = new ArrayList<String>();
     }
     
-	public static Alphabetizer getInstance(){
+	public static AlphabetizerADT getInstance(){
 		if(alphabetizer == null){
-			alphabetizer = new Alphabetizer();
+			alphabetizer = new AlphabetizerADT();
 		}
 		return alphabetizer;
 	}
