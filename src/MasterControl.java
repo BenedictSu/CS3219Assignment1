@@ -14,6 +14,8 @@ public class MasterControl {
         
     private MasterControl(){
         inputADT = InputADT.getInstance();
+        circularShiftADT = CircularShiftADT.getInstance();
+        alphabetizerADT = AlphabetizerADT.getInstance();
         outputADT = OutputADT.getInstance();
     }
     
@@ -22,5 +24,14 @@ public class MasterControl {
             masterControl = new MasterControl();
         }
         return masterControl;
+    }
+    
+    public static void run() {
+        inputADT.run();
+        ArrayList<String> unsortedList = circularShiftADT.run(inputADT.getMovies(), inputADT.getIgnores());
+        alphabetizerADT.run(unsortedList);
+        ArrayList<String> sortedList = alphabetizerADT.getSortedList();
+        outputADT.set(sortedList);
+        outputADT.run();
     }
 }
